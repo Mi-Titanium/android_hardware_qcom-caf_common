@@ -5,10 +5,10 @@ UM_3_18_HAL_FAMILY := msm8996
 UM_4_4_HAL_FAMILY := msm8998
 
 ifeq (,$(TARGET_ENFORCES_QSSI))
-UM_3_18_HAL_FAMILY += msm8937 msm8953
+UM_3_18_HAL_FAMILY += msm8937 msm8953 titanium_64
 UM_4_4_HAL_FAMILY += sdm660
 else
-UM_4_9_LEGACY_FAMILY := msm8937 msm8953
+UM_4_9_LEGACY_FAMILY := msm8937 msm8953 titanium_64
 UM_4_19_LEGACY_FAMILY := sdm660
 endif
 
@@ -236,7 +236,7 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 TARGET_USES_QCOM_MM_AUDIO := true
 
 # Enable color metadata on UM platforms that support it
-ifneq ($(filter msm8937 msm8953 msm8996,$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(filter msm8937 msm8953 msm8996 titanium_64,$(TARGET_BOARD_PLATFORM)),)
     TARGET_USES_COLOR_METADATA := true
 endif
 
@@ -312,6 +312,9 @@ ifneq ($(filter $(UM_3_18_HAL_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 else ifneq ($(filter $(UM_4_9_LEGACY_FAMILY),$(TARGET_BOARD_PLATFORM)),)
     MSM_VIDC_TARGET_LIST := $(UM_4_9_LEGACY_FAMILY)
     QCOM_HARDWARE_VARIANT := msm8953
+else ifneq ($(filter $(UM_4_9_LEGACY_FAMILY),$(TARGET_BOARD_PLATFORM)),)
+    MSM_VIDC_TARGET_LIST := $(UM_4_9_LEGACY_FAMILY)
+    QCOM_HARDWARE_VARIANT := titanium_64
 else ifneq ($(filter $(UM_4_4_HAL_FAMILY),$(TARGET_BOARD_PLATFORM)),)
     MSM_VIDC_TARGET_LIST := $(UM_4_4_HAL_FAMILY)
     QCOM_HARDWARE_VARIANT := msm8998

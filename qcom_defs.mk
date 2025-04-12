@@ -3,7 +3,7 @@ MSMSTEPPE := sm6150
 TRINKET := trinket #SM6125
 
 # UM families
-UM_3_18_FAMILY := msm8996 msm8937 msm8953
+UM_3_18_FAMILY := msm8996 msm8937 msm8953 titanium_64
 UM_4_4_FAMILY := msm8998 sdm660
 UM_4_9_FAMILY := sdm845 sdm710
 UM_4_14_FAMILY := msmnile $(MSMSTEPPE) $(TRINKET) atoll
